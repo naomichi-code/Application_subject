@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :users,only: [:show,:index,:edit,:update]
-  resources :books
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   root 'home#top'
   get 'home/about' => 'home#about'
+  resources :users,only: [:show,:index,:edit,:update]
+  resources :books
   end
