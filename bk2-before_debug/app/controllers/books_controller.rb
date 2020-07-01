@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   before_action :authenticate_user!
   def show
+    @book_new = Book.new
     @book = Book.find(params[:id])
   end
 
@@ -39,7 +40,7 @@ class BooksController < ApplicationController
 
   def destroy
     book = Book.find(params[:id])
-    book.destoy
+    book.destroy
     redirect_to books_path
   end
 
