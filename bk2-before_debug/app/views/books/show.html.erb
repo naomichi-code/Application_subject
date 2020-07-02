@@ -26,10 +26,30 @@
 				<% if @book.user == current_user %>
 					<td><%= link_to "Edit", edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>
 					<td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
+					<td><%= @book.book_comments.count%>件コメント</td>
 				<% end %>
 				</tr>
 			</table>
+				<div class="col-xs-12">
+					<% @book.book_comments.each do |book_comment| %>
+						<table style="border:none;">
+							<tr>
+								<td>
+								<%= attachment_image_tag(book_comment.user, :profile_image, :fill, 40, 40, fallback: "no-image-mini.jp") %><br>
+								<%= book_comment.user.name %>
+								<td>
+								<td><%= book_comment.comment %></td>
+							</tr>
+						</table>
+					<% end %>
+				</div>
+				<div class="col-xs-6">
+				 <div class="form-group">
+					<%= form_for [@book, @book_comment] do |f| %>
+						<%= f.text_area :comment, class: "form-control " %>
+						<%= f.submit "送信", class: "btn btn-default " %>
+					<% end %>
+				</div>
 
 	</div>
 </div>
-
