@@ -1,6 +1,6 @@
 <table class="table">
+
 	<tr><%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
-	
 
 	<tr>
 		<th>name</th>
@@ -10,6 +10,16 @@
 	<tr>
 		<th>introduction</th>
 		<th><%= user.introduction %></th>
+	</tr>
+
+	<tr>
+		<th>follow</th>
+		<th><%= link_to user.followings.count, following_user_path(user)%></th>
+	</tr>
+	
+	<tr>
+		<th>followers</th>
+		<th><%= link_to user.followers.count, followers_user_path(user)%></th>
 	</tr>
 </table>
 
