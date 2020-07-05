@@ -7,7 +7,6 @@ class BookCommentsController < ApplicationController
       flash[:success] = "Comment was successfully created."
       redirect_to request.referer
     else
-
       @book_new = Book.new
       @book_comments = @book.book_comments
       render '/books/show'
