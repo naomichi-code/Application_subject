@@ -5,7 +5,6 @@ class BookCommentsController < ApplicationController
     @book_comment.book_id = @book.id
     if @book_comment.save
       flash[:success] = "Comment was successfully created."
-      redirect_to request.referer
     else
       @book_new = Book.new
       @book_comments = @book.book_comments
@@ -19,7 +18,6 @@ class BookCommentsController < ApplicationController
     if @book_comment.user == current_user
       @book_comment.destroy
     end
-    redirect_to request.referer
   end
 
 

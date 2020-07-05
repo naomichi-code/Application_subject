@@ -13,17 +13,9 @@
 				    	<td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
 				    <% end %>
 					<td>
-						<% if book.favorited_by?(current_user) %>
-						<%= link_to book_favorites_path(book), method: :delete do %>
-							<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-							 <%= book.favorites.count %>
-						<% end %>
-					<% else %>
-						<%= link_to book_favorites_path(book), method: :post do %>
-							<i class="fa fa-heart-o" aria-hidden="true"></i>
-							<%= book.favorites.count %>
-						<% end %>
-					<% end %>
+                        <div id="favorite_buttons">
+                            <%= render 'favorites/form',book: book %>
+                        </div>
 					</td>
 					<td><%= book.book_comments.count%>件コメント</td>
 				</tr>

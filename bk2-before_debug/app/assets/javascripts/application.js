@@ -17,5 +17,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$("#comments_area").html("<%= j(render 'index', { book: @book}) %>")
-$("textarea").val('')
+
+
+$('#favorite_buttons').html("<%= j(render partial: 'favorites/form', locals: {book: @favorite.book}) %>");
