@@ -15,6 +15,22 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, class: "email" %>
   </div>
+<!-- 住所登録機能　-->
+<div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code, autofocus: true, class: "postal_code",id: "address_zipcode" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :prefecture_code %><br>
+    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, class: "address", id: "address_prefecture_name" %> <!--下記へ変更　プルダウンの属性がcodeになっている、jpostal.jsと都道府県名で同期させることがでないnameへ-->
+    <!-- <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, class: "address" %> -->
+    <%= f.label :city %><br>
+    <%= f.text_field :city, autofocus: true, class: "address", id:"address_city" %><br>
+    <%= f.label 'Street' %><br>
+    <%= f.text_field :building, autofocus: true, class: "address", id: "address_street" %>
+  </div>
+<!-- 住所登録機能　-->
 
   <div class="field">
     <%= f.label :password %>
