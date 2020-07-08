@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     #devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profle_image, :email, :postal_code, :prefecture_code, :city, :building])#sign_up時の登録情報追加
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profle_image, :email, :postal_code, :prefecture_code, :city, :building,:latitude,:longitude])#sign_up時の登録情報追加
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name]) # ログイン時はnameを使用
   end
 end
