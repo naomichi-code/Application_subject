@@ -7,6 +7,10 @@ class User < ApplicationRecord
       has_many :books, dependent: :destroy
       has_many :favorites, dependent: :destroy
       has_many :book_comments, dependent: :destroy
+      #チャット機能
+      has_many :chats
+      has_many :user_rooms
+      has_many :rooms, through: :user_rooms
       attachment :profile_image
     #フォロー機能
     has_many :relationships #has_many :relationships, foreign_key: 'user_id'と一緒の意味
