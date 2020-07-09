@@ -6,4 +6,5 @@
 - 応用課題4　フォロー機能　bk2-before2_debug（課題２のbookersを使ってます）
 - 応用課題5　検索機能　bk2-before2_debug（課題２のbookersを使ってます）
 - 応用課題6　非同期機能　bk2-before2_debug（課題２のbookersを使ってます）
-- 応用課題7　非同期機能　bk2-before2_debug（課題２のbookersを使ってます）
+- 応用課題7　googlemap機能　bk2-before2_debug（課題２のbookersを使ってます）
+- 応用課題8　登録メール完了機能　bk2-before2_debug（課題２のbookersを使ってます）
